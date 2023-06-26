@@ -21,10 +21,15 @@ alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles false && kil
 # DOCKER
 
 # KUBERNETES
-alias k=kubectl
-alias kcgc='kubectl config get-contexts' # display your current context information which is really useful when dealing with multiple clusters
-alias kcuc='kubectl config use-context' # helps in quickly switching the context
+alias k=kubectl # shows the version of kubectl and the Kubernetes cluster that it's currently communicating with
+alias kv='kubectl version' 
+alias kcogc='kubectl config get-contexts' # display list of contexts
+alias kcocc='kubectl config current-context' # display the current-context
+alias kcouc='kubectl config use-context' # set the default context to the current cluster
+alias kcosc='kubectl config set-context --current' # Edit the current context properties
 alias kr='kubectl run' # help you quickly start a new pod
+alias kgd='kubectl get deployment' # list the deployments
+alias kcd='kubectl create deployment'
 alias kaf='kubectl apply -f' # apply the configuration from a YAML file
 alias kex='kubectl exec -i -t'
 alias kg='kubectl get' # list a ressource
