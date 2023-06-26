@@ -12,6 +12,14 @@ alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles false && kil
 
 # TRAITEMENT DE CSV
 
+# cURL
+
+# OPENSSL
+
+# OPENSSH
+
+# DOCKER
+
 # KUBERNETES
 alias k=kubectl
 alias kcgc='kubectl config get-contexts' # display your current context information which is really useful when dealing with multiple clusters
