@@ -191,23 +191,11 @@
 ;; Increase font size (too small for me by default)
 (set-face-attribute 'default nil :font "Inter-18")
 
-;; Customize Org Mode heading sizes
-(defun my/org-customize-heading-sizes ()
-  (dolist (face '((org-level-1 . 1.5)
+;; Customize Org Mode heading sizes in Leuven theme
+(load-theme 'leuven)
+(with-eval-after-load 'org-faces
+  (dolist (face '((org-document-title . 1.5)
+                  (org-level-1 . 1.4)
                   (org-level-2 . 1.3)
-                  (org-level-3 . 1.2)
-                  (org-level-4 . 1.1)
-                  (org-level-5 . 1.0)
-                  ;; Add more levels if needed
-                  ))
+                  (org-level-3 . 1.2)))
     (set-face-attribute (car face) nil :height (cdr face))))
-(add-hook 'org-mode-hook 'my/org-customize-heading-sizes)
-
-(use-package doom-themes
-  :ensure t
-  :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one-light t)
-  )
