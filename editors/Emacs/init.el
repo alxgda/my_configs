@@ -31,7 +31,6 @@
 (setq default-buffer-file-coding-system 'utf-8)
 
 ;; Enable line numbering in prog mode
-;;(global-display-line-numbers-mode 1) to display lines everywhere
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;; Set the  margins width (too small by default) in org and markdown modes
@@ -155,9 +154,11 @@
   (setq auto-fill-mode 0) ; disables the auto-fill mode, which automatically wraps text at the fill-column
   (setq visual-line-mode 1) ;  displays long lines "virtually" wrapped, making them easier to read without actually changing the underlying text.
   (setq
+      org-startup-folded t ; At opening, show only top headings, everything collapsed, for easy outlining of a file content
       org-startup-indented t ; Org mode will use an indented display for headings and list items
       org-enforce-todo-dependencies nil ; Org mode will not enforce TODO dependencies
       org-pretty-entities t ; Org mode will display special Unicode characters for common entities like arrows and fractions instead of using plain text representations
+      org-blank-before-new-entry nil ; prevent Emacs from inserting blank lines before new entries
       org-use-sub-superscripts "{}"  ; Org mode will use curly braces {} to represent subscripts and superscripts.
       org-hide-emphasis-markers t ; Org mode will hide the markers used for emphasis (bold, italic, etc.) in the buffer and only display the emphasized text
       org-hide-leading-stars t ; Org mode will hide leading stars (asterisks) that indicate heading levels. This gives a cleaner look to the buffer.
@@ -177,7 +178,15 @@
       org-log-done t ; add a timestamp and a note in the "LOGBOOK" drawer whenever a task is marked as DONE.
       )
   (add-to-list 'org-modules 'org-habit)
+  (customize-set-variable 'org-blank-before-new-entry
+                        '((heading . nil)
+                          (plain-list-item . nil)))
+  (setq org-cycle-separator-lines 1)
   )
+
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
 
 (use-package org-superstar
   :ensure t)
@@ -189,7 +198,7 @@
 
 ;; ========== Theming ==========;
 ;; Increase font size (too small for me by default)
-(set-face-attribute 'default nil :font "Inter-18")
+(set-face-attribute 'default nil :font "Inter-19")
 
 ;; Customize Org Mode heading sizes in Leuven theme
 (load-theme 'leuven)
