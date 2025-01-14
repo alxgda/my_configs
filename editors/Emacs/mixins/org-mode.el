@@ -12,7 +12,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 					;
 ; Default directory where Org-mode files are stored
-(setq org-directory "/Users/alexandre/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Cerveau\ Digital/1\ -\ Pilotage")
+;(setq org-directory "/Users/alexandre/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Cerveau\ Digital/1\ -\ Pilotage")
 
  ; Specifies exactly the list of files or directories to be searched for agenda entries
 (setq org-agenda-files '("inbox.org" "work.org"))
@@ -87,11 +87,3 @@
 (global-set-key (kbd "C-c l") #'org-store-link)
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c c") #'org-capture)
-
-(use-package org-superstar
-  :ensure t)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-
-(use-package org-modern
-  :ensure t)
-(with-eval-after-load 'org (global-org-modern-mode))
