@@ -1,1 +1,1 @@
-Toutes mes configs pour retrouver mon environnement d'un PC à l'autre
+All my configurations to restore my environment from one PC to another.
