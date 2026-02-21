@@ -1,6 +1,6 @@
 alias meteo="curl wttr.in/Geneva" # https://github.com/chubin/wttr.in
-alias ebhrc="vim ~/.bashrc"
-alias ezhrc="vim ~/.zshrc"
+alias ebashrc="vim ~/.bashrc"
+alias ezshrc="vim ~/.zshrc"
 
 # RESEAU
 alias publicip="curl ipv4.icanhazip.com"
@@ -18,11 +18,24 @@ alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles false && kil
 
 # OPENSSH
 
-# DOCKER
+#    _____ _ _   
+#   / ____(_) |  
+#  | |  __ _| |_ 
+#  | | |_ | | __|
+#  | |__| | | |_ 
+#   \_____|_|\__|
 
-# KUBERNETES
-alias k=kubectl # shows the version of kubectl and the Kubernetes cluster that it's currently communicating with
-alias kv='kubectl version' 
+alias gitclean='git branch --merged origin/main | grep -vE "^\s*(\*|main|develop)" | xargs -n 1 git branch -d' # delete all branches merged in origin/main
+
+#   _  _____   _____ 
+#  | |/ / _ \ / ____|
+#  | ' / (_) | (___  
+#  |  < > _ < \___ \ 
+#  | . \ (_) |____) |
+#  |_|\_\___/|_____/ 
+                   
+alias k=kubectl
+alias kv='kubectl version' # shows the version of kubectl and the Kubernetes cluster that it's currently communicating with
 alias kcogc='kubectl config get-contexts' # display list of contexts
 alias kcocc='kubectl config current-context' # display the current-context
 alias kcouc='kubectl config use-context' # set the default context to the current cluster
@@ -46,6 +59,3 @@ alias krmp='kubectl delete pod'
 alias kgs='kubectl get service' # list all services in the current namespace
 alias kds='kubectl describe service'
 alias krms='kubectl delete service'
-
-
-
